@@ -1,0 +1,20 @@
+//splitting a string by using a comman separator
+// indexOfx substring
+class S22 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "abc;hello;123;xyz;test";
+		int i = 0, j = s1.indexOf(';');
+		String word;
+		while(j != -1)
+		{
+			word = s1.substring(i, j);
+			System.out.println(word);
+			i = j + 1;
+			j = s1.indexOf(';',i);
+		}
+		word = s1.substring(i);
+        System.out.println(word); 
+	}
+}
