@@ -1,0 +1,17 @@
+//find out total number of characters without length() method
+class S34 
+{
+	public static void main(String[] args) 
+	{
+		if (args.length != 1)
+		{
+			System.out.println("pls enter one command line args");
+			return;
+		}
+		String s1 = args[0];
+		s1 = s1 + 'a';
+		int i = s1.lastIndexOf('a');
+
+		System.out.println("total number of characters are : " + i);
+	}
+}
