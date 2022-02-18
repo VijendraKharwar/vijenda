@@ -1,0 +1,39 @@
+//removing any number of spaces from a string
+
+class S26 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "abc    hello  123     xyz     test    a      java   btm";
+
+		int i = 0, j = s1.indexOf(' ');
+		String word;
+
+		while(j != -1)
+		{
+			word = s1.substring(i, j); 
+			System.out.println(word);
+			i = j + 1;
+			while(s1.charAt(i) == ' ')
+			{
+				i++;
+			}
+			j = s1.indexOf(' ', i);
+		}
+		word = s1.substring(i);
+		System.out.println(word);
+	}
+}
+
+/*
+
+abc
+hello
+123
+xyz
+test
+a
+java
+btm
+
+*/
