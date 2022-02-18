@@ -1,0 +1,23 @@
+package com.kharwar.vijendra;
+
+import java.util.Scanner;
+
+//swapping two words to each other
+public class V2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the first string ...");
+		String s1 = sc.nextLine();
+		
+		System.out.println("enter the second string ...");
+		String s2 = sc.nextLine();
+		
+		System.out.println("before swapping the words are " + s1 + " and " + s2);
+		
+		s1 = s1 + s2;
+		s2 = s1.substring(0, (s1.length() - s2.length()));
+		s1 = s1.substring(s2.length());
+		
+		System.out.println("after swapping the words are " + s1 + " and " + s2);
+	}
+}
