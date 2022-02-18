@@ -1,0 +1,30 @@
+//remove s1 occurance in the s2
+//final output of s2 : th land and not olated
+class S25
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "is";
+		String s2 = "this is island and is not isolated";
+		//System.out.println(s2.indexOf("is")); 
+		int i = s2.indexOf(s1);
+		while(i != -1)
+		{
+			s2 = s2.substring(0, i) + s2.substring(i + s1.length()); 
+			i = s2.indexOf(s1);
+			System.out.println(s2);
+		}
+        System.out.println(s2); 
+	}
+}
+
+/*
+
+th is island and is not isolated
+th  island and is not isolated
+th  land and is not isolated
+th  land and  not isolated
+th  land and  not olated
+th  land and  not olated
+
+*/
