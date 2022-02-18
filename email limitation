@@ -1,0 +1,29 @@
+package com.kharwar.vijendra;
+
+import java.util.Scanner;
+
+//email limitation
+public class V6 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter your email ...");
+		String email = sc.nextLine();
+		int i = email.indexOf('@');
+		if (i != -1) 
+		{
+			int j = email.indexOf('.');
+			if (j != -1) 
+			{
+				System.out.println("Congratulation!  your email is in proper format....");
+			} else 
+			{
+				System.out.println("bad luck!  you just missed the dot after @ ...");
+			}
+		} else 
+		{
+			System.out.println("your email is not in the proper format, you just missed @ ...");
+		}
+	}
+}
