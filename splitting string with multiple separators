@@ -1,0 +1,87 @@
+//multiple separatores
+/*
+		String s1 = "abc;hello,test,test.123;java,btm.456,blr";
+
+		output should be
+		abc
+		hello
+		test
+		123
+		java
+		btm
+		456
+		blr
+*/
+
+class S27 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "abc;hello,test.123;java,btm.456,blr";
+		System.out.println(s1);
+		int fromIndex = 0, toIndex = toIndex(s1, fromIndex);
+		String word;
+		while(toIndex != -1)
+		{
+			word = s1.substring(fromIndex, toIndex);
+			System.out.println(word);
+			fromIndex = toIndex + 1;
+			toIndex = toIndex(s1, fromIndex);
+		}
+		word = s1.substring(fromIndex);
+		System.out.println(word);
+	}
+	static int toIndex(String s1, int fromIndex)
+	{
+		int i = s1.indexOf(';', fromIndex);
+		int j = s1.indexOf('.', fromIndex);
+		int k = s1.indexOf(',', fromIndex);	
+		if(i == -1 && j == -1 && k == -1)
+		{
+			return -1;
+		}
+		int[] elements = {i, j, k};
+		int min;
+		if(elements[0] != -1)
+		{
+			min = elements[0];
+		}
+		else if(elements[1] != -1)
+		{
+			min = elements[1];
+		}
+		else
+		{
+			min = elements[2];
+		}
+		for(int m = 1; m < elements.length; m++)
+		{
+			if(elements[m] != -1 && elements[m] < min)
+			{
+				min = elements[m];
+			}
+		 }
+		 System.out.println("after " + fromIndex + "-----> collon ==> " + i + " and dot ==> " + j + " and comma ==> " + k + ", min = " + min);
+		return min;
+	}
+}
+
+/*
+
+after 0----->3, 14, 9, min = 3
+abc
+after 4----->18, 14, 9, min = 9
+hello
+after 10----->18, 14, 23, min = 14
+test
+after 15----->18, 27, 23, min = 18
+123
+after 19----->-1, 27, 23, min = 23
+java
+after 24----->-1, 27, 31, min = 27
+btm
+after 28----->-1, -1, 31, min = 31
+456
+blr
+
+*/
