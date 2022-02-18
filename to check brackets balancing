@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+/*
+balancing brackets
+	ab{c(xyz)test}						=====> balanced 
+	a(b{c)test}							  =====> balanced
+	test(12{)skkd}						=====> not balanced
+	(12{345}67)shdh						=====> balanced
+	test(abc{57767}4664)			=====> not balanced
+	abc)test							    =====> not balanced
+	hello(test(123}						=====> not balanced
+	hello{test(123))					=====> not balanced
+	hello(test(123(v{ijendra}))5678909)	=====> balanced
+*/
+
+class S29 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = args[0];
+		ArrayList<Character> list = new ArrayList<Character>();
+		String openBrackets = "({";
+		String closingBrackets = ")}";
+		boolean isBalanced = true;
+		char currentChar;
+		for (int i = 0; i < s1.length(); i++ )
+		{
+			currentChar = s1.charAt(i);
+			if (openBrackets.indexOf(currentChar) != -1)
+			{
+				list.add(currentChar);
+			}else if (closingBrackets.indexOf(currentChar) != -1)
+			{
+				if(list.size() != 0 && compare(currentChar, list.get(list.size() - 1)))
+				{
+					list.remove(list.size() - 1);
+				}else 
+				{
+					isBalanced = false;
+					break;
+				}
+			}
+		}
+		System.out.println(isBalanced && list.size() == 0 ? (s1 + " : is balanced") : (s1 + " : is not balanced"));
+	}
+	private static boolean compare(char closeBracket, char openBracket)
+	{
+		return (openBracket == '(' && closeBracket == ')') || (openBracket == '{' && closeBracket == '}');
+	}
+}
