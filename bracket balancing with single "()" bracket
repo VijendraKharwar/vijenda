@@ -1,0 +1,34 @@
+/*
+balancing brackets
+	abc(xyz)test						=====> balanced 
+	a(bc)test							=====> balanced
+	test()skkd							=====> balanced
+	(1234567)							=====> balanced
+	test(abc							=====> not balanced
+	abc)test							=====> not balanced
+	hello(test(123)						=====> not balanced
+	hello(test(123))					=====> balanced
+	hello(test(123(vijendra))5678909)	=====> balanced
+*/
+class S28 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = args[0];
+		int count1 = 0;
+		int i = s1.indexOf('(');
+		while (i != -1)
+		{
+			count1 ++;
+			i = s1.indexOf('(',(i + 1));
+		}
+		int count2 = 0;
+		int j = s1.indexOf(')');
+		while (j != -1)
+		{
+			count2 ++;
+			j = s1.indexOf(')',(j + 1));
+		}
+		System.out.println(count1 == count2 ? (s1 + " : is balanced") : (s1 + " : is not balanced"));
+	}
+}
