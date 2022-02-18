@@ -1,0 +1,31 @@
+package com.kharwar.vijendra;
+//Given a string, return the sum of the numbers appearing in the string,
+import java.util.Scanner;
+
+public class V3 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the first string ...");
+		String s1 = sc.nextLine(); //a12bvjdkv13hgdh15
+		int sum = 0;
+		char c1;
+		String numericStr = "";
+		for (int i = 0; i < s1.length(); i++) {
+			c1 = s1.charAt(i);
+			if (Character.isDigit(c1)) {
+				numericStr = numericStr + c1;
+			}else
+			{
+				if (numericStr.length() != 0) {
+					sum = sum + Integer.parseInt(numericStr.trim());
+				}
+				numericStr ="";
+			}
+		}
+		if (numericStr.length() != 0) {
+			sum = sum + Integer.parseInt(numericStr.trim());
+		}
+		numericStr ="";
+		System.out.println(sum); //40
+	}
+}
