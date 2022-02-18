@@ -1,0 +1,23 @@
+//first no-repeated character
+class S35 
+{
+	public static void main(String[] args) 
+	{
+		if (args.length != 1)
+		{
+			System.out.println("pls enter one command line args");
+			return;
+		}
+		String s1 = args[0];
+		char c1 = s1.charAt(0);
+		for (int i = s1.length(); i > 0 ; i--)
+		{
+			c1 = s1.charAt(i);
+			if (s1.indexOf(c1) == s1.lastIndexOf(c1))
+			{
+				break;
+			}
+		}
+		System.out.println("first non repeated char : " + c1);
+	}
+}
