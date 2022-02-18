@@ -1,0 +1,21 @@
+package com.kharwar.vijendra;
+//Given a string, return the sum of the digits 0-9 that appear in the string,
+import java.util.Scanner;
+
+public class V4 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the first string ...");
+		String s1 = sc.nextLine();
+		int sum = 0;
+		char c1;
+		String numericStr = "";
+		for (int i = 0; i < s1.length(); i++) {
+			c1 = s1.charAt(i);
+			if (Character.isDigit(c1)) {
+				sum = sum + Integer.parseInt(Character.toString(c1));
+			}
+		}
+		System.out.println(sum);
+	}
+}
