@@ -1,0 +1,27 @@
+//removing all the white spaces
+/*
+abc
+xyz
+hello
+123
+test
+*/
+
+
+class S24 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "abc xyz hello 123 test";
+
+		int fromIndex = 0, toIndex = s1.indexOf(' ');
+		String word;
+		while(toIndex != -1)
+		{
+			System.out.println(s1.substring(fromIndex, toIndex));
+			fromIndex = toIndex + 1;
+			toIndex = s1.indexOf(' ', fromIndex);
+		}
+        System.out.println(s1.substring(fromIndex)); 
+	}
+}
